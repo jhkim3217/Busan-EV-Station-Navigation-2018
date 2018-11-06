@@ -14,6 +14,9 @@
 		52FC13AA21919C0800CF8B49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52FC13A821919C0800CF8B49 /* LaunchScreen.storyboard */; };
 		52FC13B521919C0800CF8B49 /* navigation_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC13B421919C0800CF8B49 /* navigation_testTests.swift */; };
 		52FC13C021919C0800CF8B49 /* navigation_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC13BF21919C0800CF8B49 /* navigation_testUITests.swift */; };
+		52FC13CF21919C9200CF8B49 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FC13CE21919C9200CF8B49 /* MapKit.framework */; };
+		52FC13D121919FA700CF8B49 /* BusanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC13D021919FA700CF8B49 /* BusanData.swift */; };
+		52FC13D32191A04D00CF8B49 /* EV.xml in Resources */ = {isa = PBXBuildFile; fileRef = 52FC13D22191A04D00CF8B49 /* EV.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		52FC13BB21919C0800CF8B49 /* navigation_testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = navigation_testUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FC13BF21919C0800CF8B49 /* navigation_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navigation_testUITests.swift; sourceTree = "<group>"; };
 		52FC13C121919C0800CF8B49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52FC13CE21919C9200CF8B49 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		52FC13D021919FA700CF8B49 /* BusanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusanData.swift; sourceTree = "<group>"; };
+		52FC13D22191A04D00CF8B49 /* EV.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = EV.xml; path = ../../../EV.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52FC13CF21919C9200CF8B49 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +88,7 @@
 				52FC13B321919C0800CF8B49 /* navigation_testTests */,
 				52FC13BE21919C0800CF8B49 /* navigation_testUITests */,
 				52FC139D21919BFC00CF8B49 /* Products */,
+				52FC13CD21919C9200CF8B49 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +105,14 @@
 		52FC139E21919BFC00CF8B49 /* navigation_test */ = {
 			isa = PBXGroup;
 			children = (
+				52FC13D22191A04D00CF8B49 /* EV.xml */,
 				52FC139F21919BFC00CF8B49 /* AppDelegate.swift */,
 				52FC13A121919BFC00CF8B49 /* ViewController.swift */,
 				52FC13A321919BFC00CF8B49 /* Main.storyboard */,
 				52FC13A621919C0800CF8B49 /* Assets.xcassets */,
 				52FC13A821919C0800CF8B49 /* LaunchScreen.storyboard */,
 				52FC13AB21919C0800CF8B49 /* Info.plist */,
+				52FC13D021919FA700CF8B49 /* BusanData.swift */,
 			);
 			path = navigation_test;
 			sourceTree = "<group>";
@@ -123,6 +133,14 @@
 				52FC13C121919C0800CF8B49 /* Info.plist */,
 			);
 			path = navigation_testUITests;
+			sourceTree = "<group>";
+		};
+		52FC13CD21919C9200CF8B49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52FC13CE21919C9200CF8B49 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52FC13D32191A04D00CF8B49 /* EV.xml in Resources */,
 				52FC13AA21919C0800CF8B49 /* LaunchScreen.storyboard in Resources */,
 				52FC13A721919C0800CF8B49 /* Assets.xcassets in Resources */,
 				52FC13A521919BFC00CF8B49 /* Main.storyboard in Resources */,
@@ -257,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52FC13A221919BFC00CF8B49 /* ViewController.swift in Sources */,
+				52FC13D121919FA700CF8B49 /* BusanData.swift in Sources */,
 				52FC13A021919BFC00CF8B49 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
