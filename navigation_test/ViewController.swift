@@ -68,11 +68,11 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
             loc = item["소재지지번주소"]
             dLat = Double(lat!)
             dLong = Double(long!)
-            annotation = BusanData(title: name!, subtitle: loc!, coordinate: CLLocationCoordinate2D(latitude: dLat!, longitude: dLong!))
+            annotation = BusanData(title: name!, subtitle: loc!, coordinate: CLLocationCoordinate2D(latitude: dLong!, longitude: dLat!))
             annotations.append(annotation!)
         }
-        mapView.addAnnotations(annotations)
         mapView.showAnnotations(annotations, animated: true)
+        mapView.addAnnotations(annotations)
 
         
     } // viewDidLoad()
