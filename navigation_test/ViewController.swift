@@ -59,7 +59,7 @@ class ViewController: UIViewController, XMLParserDelegate {
         mapView.delegate = self
         
          //초기맵 설정
-        zoomToRegion()
+        //zoomToRegion()
         
         for item in items {
             lat = item["위도"]
@@ -76,6 +76,23 @@ class ViewController: UIViewController, XMLParserDelegate {
 
         
     } // viewDidLoad()
+    
+    
+    @IBAction func current(_ sender: Any) {
+        let userLocation = mapView.userLocation
+        let region = MKCoordinateRegionMakeWithDistance((userLocation.location?.coordinate)!, 3000, 3000)
+        mapView.setRegion(region, animated: true)
+    }
+    @IBAction func zoomIn(_ sender: Any) {
+        
+    }
+    
+    @IBAction func zoomOut(_ sender: Any) {
+        let zoomScale: MKZoomScale = mapView.bounds.size.width/CGFloat(mapView.visibleMapRect.size.width)
+        mapView.frame.size.width /= zoomScale
+        mapView.frame.size.height /= zoomScale
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
