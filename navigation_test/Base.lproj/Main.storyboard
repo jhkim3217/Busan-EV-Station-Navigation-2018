@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,6 +14,10 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="navigation_test" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9wG-Kw-Lal"/>
+                        <viewControllerLayoutGuide type="bottom" id="70d-9U-jYN"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,15 +28,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dcY-0v-nai" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0YU-kJ-y3U"/>
-                            <constraint firstItem="dcY-0v-nai" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8tF-sc-OdI"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dcY-0v-nai" secondAttribute="bottom" id="OxC-cL-qoU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dcY-0v-nai" secondAttribute="trailing" id="qh7-2l-qIK"/>
+                            <constraint firstAttribute="bottom" secondItem="dcY-0v-nai" secondAttribute="bottom" id="CHn-Ih-oTR"/>
+                            <constraint firstItem="dcY-0v-nai" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Iiu-Na-acW"/>
+                            <constraint firstItem="dcY-0v-nai" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="O8Q-e5-Na2"/>
+                            <constraint firstItem="dcY-0v-nai" firstAttribute="top" secondItem="9wG-Kw-Lal" secondAttribute="bottom" id="sYz-E2-fHg"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="mapView" destination="dcY-0v-nai" id="YnG-As-5Nk"/>
+                        <outlet property="mapView" destination="dcY-0v-nai" id="5oB-VM-g3j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

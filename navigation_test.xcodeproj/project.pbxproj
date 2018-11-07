@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EECBB42219273DA0074FD1D /* EV.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4EECBB41219273DA0074FD1D /* EV.xml */; };
 		52FC13A021919BFC00CF8B49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC139F21919BFC00CF8B49 /* AppDelegate.swift */; };
 		52FC13A221919BFC00CF8B49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC13A121919BFC00CF8B49 /* ViewController.swift */; };
 		52FC13A521919BFC00CF8B49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52FC13A321919BFC00CF8B49 /* Main.storyboard */; };
@@ -16,7 +17,6 @@
 		52FC13C021919C0800CF8B49 /* navigation_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC13BF21919C0800CF8B49 /* navigation_testUITests.swift */; };
 		52FC13CF21919C9200CF8B49 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FC13CE21919C9200CF8B49 /* MapKit.framework */; };
 		52FC13D121919FA700CF8B49 /* BusanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC13D021919FA700CF8B49 /* BusanData.swift */; };
-		52FC13D32191A04D00CF8B49 /* EV.xml in Resources */ = {isa = PBXBuildFile; fileRef = 52FC13D22191A04D00CF8B49 /* EV.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4EECBB41219273DA0074FD1D /* EV.xml */ = {isa = PBXFileReference; explicitFileType = text.xml; fileEncoding = 4; path = EV.xml; sourceTree = "<group>"; };
 		52FC139C21919BFC00CF8B49 /* navigation_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = navigation_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FC139F21919BFC00CF8B49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52FC13A121919BFC00CF8B49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		52FC13C121919C0800CF8B49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52FC13CE21919C9200CF8B49 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		52FC13D021919FA700CF8B49 /* BusanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusanData.swift; sourceTree = "<group>"; };
-		52FC13D22191A04D00CF8B49 /* EV.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = EV.xml; path = ../../../EV.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +105,7 @@
 		52FC139E21919BFC00CF8B49 /* navigation_test */ = {
 			isa = PBXGroup;
 			children = (
-				52FC13D22191A04D00CF8B49 /* EV.xml */,
+				4EECBB41219273DA0074FD1D /* EV.xml */,
 				52FC139F21919BFC00CF8B49 /* AppDelegate.swift */,
 				52FC13A121919BFC00CF8B49 /* ViewController.swift */,
 				52FC13A321919BFC00CF8B49 /* Main.storyboard */,
@@ -247,7 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52FC13D32191A04D00CF8B49 /* EV.xml in Resources */,
+				4EECBB42219273DA0074FD1D /* EV.xml in Resources */,
 				52FC13AA21919C0800CF8B49 /* LaunchScreen.storyboard in Resources */,
 				52FC13A721919C0800CF8B49 /* Assets.xcassets in Resources */,
 				52FC13A521919BFC00CF8B49 /* Main.storyboard in Resources */,
@@ -383,7 +383,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -437,7 +437,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -451,7 +451,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 29US4V7YU5;
 				INFOPLIST_FILE = navigation_test/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,7 +461,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "kr.ac.dit.navigation-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -468,7 +470,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 29US4V7YU5;
 				INFOPLIST_FILE = navigation_test/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -476,7 +480,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "kr.ac.dit.navigation-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

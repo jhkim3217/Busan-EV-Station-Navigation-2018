@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, XMLParserDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -50,15 +50,15 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
             print("XML 파일 없음")
         }
         
-//        let initialLocation = CLLocation(latitude: 35.1795543, longitude: 129.075641)
-//        zoomMapOn(location: initialLocation)
+        let initialLocation = CLLocation(latitude: 35.1795543, longitude: 129.075641)
+        zoomMapOn(location: initialLocation)
         
 //        let sampleMangmi = BusanData(title: "망미동 공영주차장", subtitle: "부산광역시 수영구 금련로 43번길 17", coordinate: CLLocationCoordinate2D(latitude: 35.1657709, longitude: 129.0703436))
 //        mapView.addAnnotation(sampleMangmi)
         
         mapView.delegate = self
         
-        // 초기맵 설정
+         //초기맵 설정
         zoomToRegion()
         
         for item in items {
@@ -68,10 +68,10 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
             loc = item["소재지지번주소"]
             dLat = Double(lat!)
             dLong = Double(long!)
-            annotation = BusanData(title: name!, subtitle: loc!, coordinate: CLLocationCoordinate2D(latitude: dLong!, longitude: dLat!))
+            annotation = BusanData(title: name!, subtitle: loc!, coordinate: CLLocationCoordinate2D(latitude: dLat!, longitude: dLong!))
             annotations.append(annotation!)
         }
-        mapView.showAnnotations(annotations, animated: true)
+        //mapView.showAnnotations(annotations, animated: true)
         mapView.addAnnotations(annotations)
 
         
@@ -106,6 +106,7 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             mapView.showsUserLocation = true
             locationManager.startUpdatingLocation()
+            
         } else {
             locationManager.requestWhenInUseAuthorization()
             locationManager.startUpdatingLocation()
@@ -144,14 +145,14 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
 
 }
 
-//extension ViewController : CLLocationManagerDelegate
-//{
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        let location = locations.last!
-//        self.mapView.showsUserLocation = true
-//        zoomToRegion()
-//    }
-//}
+extension ViewController : CLLocationManagerDelegate
+{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last!
+        self.mapView.showsUserLocation = true
+    zoomMapOn(location: location)
+    }
+}
 
 extension ViewController : MKMapViewDelegate
 {
