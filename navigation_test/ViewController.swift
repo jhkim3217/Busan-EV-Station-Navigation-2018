@@ -84,15 +84,20 @@ class ViewController: UIViewController, XMLParserDelegate {
         mapView.setRegion(region, animated: true)
     }
     @IBAction func zoomIn(_ sender: Any) {
-        
+        print("zoom in pressed")
+        var r = mapView.region
+        r.span.latitudeDelta = r.span.latitudeDelta / 2
+        r.span.longitudeDelta = r.span.longitudeDelta / 2
+        self.mapView.setRegion(r, animated: true)
     }
     
     @IBAction func zoomOut(_ sender: Any) {
-        let zoomScale: MKZoomScale = mapView.bounds.size.width/CGFloat(mapView.visibleMapRect.size.width)
-        mapView.frame.size.width /= zoomScale
-        mapView.frame.size.height /= zoomScale
+        print("zoom out pressed")
+        var r = mapView.region
+        r.span.latitudeDelta = r.span.latitudeDelta * 2
+        r.span.longitudeDelta = r.span.longitudeDelta * 2
+        self.mapView.setRegion(r, animated: true)
     }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
