@@ -9,7 +9,8 @@
 import UIKit
 import MapKit
 class ViewController: UIViewController, XMLParserDelegate {
-
+    
+    @IBOutlet var searchBtn: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     
     var annotation: BusanData?
@@ -31,6 +32,10 @@ class ViewController: UIViewController, XMLParserDelegate {
         super.viewDidLoad()
         
         self.title = "부산 전기차 충전소"
+        self.searchBtn.layer.cornerRadius = 10
+        self.searchBtn.layer.borderColor = UIColor.black.cgColor
+        self.searchBtn.layer.borderWidth = 0.5
+        
         
         if let path = Bundle.main.url(forResource: "EV", withExtension: "xml"){
             if let myParser = XMLParser(contentsOf: path) {
