@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4EECBB42219273DA0074FD1D /* EV.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4EECBB41219273DA0074FD1D /* EV.xml */; };
+		5288852521A11F8200C41CB0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5288852421A11F8200C41CB0 /* TableViewController.swift */; };
 		52FC13A021919BFC00CF8B49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC139F21919BFC00CF8B49 /* AppDelegate.swift */; };
 		52FC13A221919BFC00CF8B49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC13A121919BFC00CF8B49 /* ViewController.swift */; };
 		52FC13A521919BFC00CF8B49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52FC13A321919BFC00CF8B49 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		4EECBB41219273DA0074FD1D /* EV.xml */ = {isa = PBXFileReference; explicitFileType = text.xml; fileEncoding = 4; path = EV.xml; sourceTree = "<group>"; };
+		5288852421A11F8200C41CB0 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		52FC139C21919BFC00CF8B49 /* navigation_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = navigation_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FC139F21919BFC00CF8B49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52FC13A121919BFC00CF8B49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				52FC13A821919C0800CF8B49 /* LaunchScreen.storyboard */,
 				52FC13AB21919C0800CF8B49 /* Info.plist */,
 				52FC13D021919FA700CF8B49 /* BusanData.swift */,
+				5288852421A11F8200C41CB0 /* TableViewController.swift */,
 			);
 			path = navigation_test;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				52FC13A221919BFC00CF8B49 /* ViewController.swift in Sources */,
 				52FC13D121919FA700CF8B49 /* BusanData.swift in Sources */,
 				52FC13A021919BFC00CF8B49 /* AppDelegate.swift in Sources */,
+				5288852521A11F8200C41CB0 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,6 +27,12 @@ class ViewController: UIViewController, XMLParserDelegate {
     var loc: String?
     var dLat: Double?
     var dLong: Double?
+    var type: String?
+    var company: String?
+    var startTime: String?
+    var endTime: String?
+    var holiday: String?
+    var phoneNum: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +49,7 @@ class ViewController: UIViewController, XMLParserDelegate {
                 if myParser.parse() {
                     print("파싱 성공")
                     for item in items {
-                        print("item \(item["소재지지번주소"]!)")
+                        //print("item \(item["소재지지번주소"]!)")
                     }
                 } else {
                     print("파싱 실패")
@@ -67,13 +73,21 @@ class ViewController: UIViewController, XMLParserDelegate {
         //zoomToRegion()
         
         for item in items {
-            lat = item["위도"]
-            long = item["경도"]
             name = item["충전소명"]
             loc = item["소재지지번주소"]
+            lat = item["위도"]
+            long = item["경도"]
+            type = item["급속충전타입구분"]
+            company = item["관리업체명"]
+            startTime = item["이용가능시작시각"]
+            endTime = item["이용가능종료시각"]
+            holiday = item["휴점일"]
+            phoneNum = item["관리업체전화번호"]
+            
+            
             dLat = Double(lat!)
             dLong = Double(long!)
-            annotation = BusanData(title: name!, subtitle: loc!, coordinate: CLLocationCoordinate2D(latitude: dLat!, longitude: dLong!))
+            annotation = BusanData(title: name!, subtitle: loc!, coordinate: CLLocationCoordinate2D(latitude: dLat!, longitude: dLong!), type: type!, company: company!, startTime: startTime!, endTime: endTime!, holiday: holiday!, phoneNum: phoneNum!)
             annotations.append(annotation!)
         }
         //mapView.showAnnotations(annotations, animated: true)
@@ -195,6 +209,7 @@ extension ViewController : MKMapViewDelegate
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+                view.leftCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
             }
             return view
         }
@@ -202,9 +217,39 @@ extension ViewController : MKMapViewDelegate
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        let location = view.annotation as! BusanData
-        let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
-        location.mapItem().openInMaps(launchOptions: launchOptions)
+        if control == view.leftCalloutAccessoryView {
+            //guard let annotation = view.annotation as? BusanData, let maintitle = annotation.title else { return }
+            
+            guard let annotation = view.annotation as? BusanData else { return }
+            guard let maintitle = annotation.title else { return }
+            guard let detialtitle = annotation.subtitle else { return }
+            guard let type = annotation.type else { return }
+            guard let company = annotation.company else { return }
+            guard let startTime = annotation.startTime else { return }
+            guard let endTime = annotation.endTime else { return }
+            guard let holiday = annotation.holiday else { return }
+            guard let phoneNum = annotation.phoneNum else { return }
+
+            
+            let vc = storyboard?.instantiateViewController(withIdentifier: "TableViewController") as? TableViewController
+            
+            vc?.maintitleString = maintitle
+            vc?.detailtitleString = detialtitle
+            vc?.typeString = type
+            vc?.companyString = company
+            vc?.startTimeString = startTime
+            vc?.endTimeString = endTime
+            vc?.holidayString = holiday
+            vc?.phoneNumString = phoneNum
+            
+            self.navigationController?.pushViewController(vc!, animated: true)
+            
+            
+        } else if control == view.rightCalloutAccessoryView {
+            let location = view.annotation as! BusanData
+            let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+            location.mapItem().openInMaps(launchOptions: launchOptions)
+        }
     }
     
 }
