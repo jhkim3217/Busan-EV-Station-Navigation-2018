@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-class ViewController: UIViewController, XMLParserDelegate {
+class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var searchBtn: UIButton!
     @IBOutlet weak var mapView: MKMapView!
@@ -42,6 +42,8 @@ class ViewController: UIViewController, XMLParserDelegate {
         self.searchBtn.layer.borderColor = UIColor.black.cgColor
         self.searchBtn.layer.borderWidth = 0.5
         
+        self.mapView.showsUserLocation = true
+        
         
         if let path = Bundle.main.url(forResource: "EV", withExtension: "xml"){
             if let myParser = XMLParser(contentsOf: path) {
@@ -61,8 +63,8 @@ class ViewController: UIViewController, XMLParserDelegate {
             print("XML 파일 없음")
         }
         
-        let initialLocation = CLLocation(latitude: 35.1795543, longitude: 129.075641)
-        zoomMapOn(location: initialLocation)
+//        let initialLocation = CLLocation(latitude: 35.1795543, longitude: 129.075641)
+//        zoomMapOn(location: initialLocation)
         
 //        let sampleMangmi = BusanData(title: "망미동 공영주차장", subtitle: "부산광역시 수영구 금련로 43번길 17", coordinate: CLLocationCoordinate2D(latitude: 35.1657709, longitude: 129.0703436))
 //        mapView.addAnnotation(sampleMangmi)
@@ -70,7 +72,7 @@ class ViewController: UIViewController, XMLParserDelegate {
         mapView.delegate = self
         
          //초기맵 설정
-        //zoomToRegion()
+        zoomToRegion()
         
         for item in items {
             name = item["충전소명"]
@@ -125,7 +127,7 @@ class ViewController: UIViewController, XMLParserDelegate {
     
     func zoomToRegion() {
         let location = CLLocationCoordinate2D(latitude: 35.180100, longitude: 129.081017)
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
     }
@@ -186,14 +188,14 @@ class ViewController: UIViewController, XMLParserDelegate {
 
 }
 
-extension ViewController : CLLocationManagerDelegate
-{
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last!
-        self.mapView.showsUserLocation = true
-    zoomMapOn(location: location)
-    }
-}
+//extension ViewController : CLLocationManagerDelegate
+//{
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        let location = locations.last!
+//        self.mapView.showsUserLocation = true
+//    zoomMapOn(location: location)
+//    }
+//}
 
 extension ViewController : MKMapViewDelegate
 {
