@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet var searchBtn: UIButton!
     @IBOutlet weak var mapView: MKMapView!
@@ -38,6 +38,7 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
         super.viewDidLoad()
         
         self.title = "부산 전기차 충전소"
+        self.mapView.delegate = self
 //        self.searchBtn.layer.cornerRadius = 10
 //        self.searchBtn.layer.borderColor = UIColor.black.cgColor
 //        self.searchBtn.layer.borderWidth = 0.5
@@ -92,8 +93,8 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
             annotation = BusanData(title: name!, subtitle: loc!, coordinate: CLLocationCoordinate2D(latitude: dLat!, longitude: dLong!), type: type!, company: company!, startTime: startTime!, endTime: endTime!, holiday: holiday!, phoneNum: phoneNum!, lat: lat!, long: long!)
             annotations.append(annotation!)
         }
-        //mapView.showAnnotations(annotations, animated: true)
-        mapView.addAnnotations(annotations)
+        mapView.showAnnotations(annotations, animated: true)
+        //mapView.addAnnotations(annotations)
 
         
     } // viewDidLoad()
@@ -124,6 +125,75 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
         super.viewDidAppear(animated)
         checkLcationServiceAuthenticationStatus()
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? BusanData {
+            let identifier = "pin"
+            var view: MKPinAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView {
+                dequeuedView.annotation = annotation
+                view = dequeuedView
+                view.image = UIImage(named: "pin")
+
+            } else {
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+                //view.leftCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+                view.image = UIImage(named: "pin")
+
+            }
+            view.image = UIImage(named: "pin")
+            
+            
+            return view
+        }
+        
+        return nil
+    }
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            //guard let annotation = view.annotation as? BusanData, let maintitle = annotation.title else { return }
+            
+            guard let annotation = view.annotation as? BusanData else { return }
+            guard let maintitle = annotation.title else { return }
+            guard let detialtitle = annotation.subtitle else { return }
+            guard let type = annotation.type else { return }
+            guard let company = annotation.company else { return }
+            guard let startTime = annotation.startTime else { return }
+            guard let endTime = annotation.endTime else { return }
+            guard let holiday = annotation.holiday else { return }
+            guard let phoneNum = annotation.phoneNum else { return }
+            guard let lat = annotation.lat else { return }
+            guard let long = annotation.long else { return }
+            
+            
+            let vc = storyboard?.instantiateViewController(withIdentifier: "TableViewController") as? TableViewController
+            
+            vc?.maintitleString = maintitle
+            vc?.detailtitleString = detialtitle
+            vc?.typeString = type
+            vc?.companyString = company
+            vc?.startTimeString = startTime
+            vc?.endTimeString = endTime
+            vc?.holidayString = holiday
+            vc?.phoneNumString = phoneNum
+            vc?.latString = lat
+            vc?.longString = long
+            
+            
+            self.navigationController?.pushViewController(vc!, animated: true)
+            
+            
+        }
+        //        else if control == view.leftCalloutAccessoryView {
+        //            let location = view.annotation as! BusanData
+        //            let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+        //            location.mapItem().openInMaps(launchOptions: launchOptions)
+        //        }
+    }
+    
     
     func zoomToRegion() {
         let location = CLLocationCoordinate2D(latitude: 35.180100, longitude: 129.081017)
@@ -198,65 +268,4 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
 //    }
 //}
 
-extension ViewController : MKMapViewDelegate
-{
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if let annotation = annotation as? BusanData {
-            let identifier = "pin"
-            var view: MKPinAnnotationView
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView {
-                dequeuedView.annotation = annotation
-                view = dequeuedView
-            } else {
-                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                view.canShowCallout = true
-                view.calloutOffset = CGPoint(x: -5, y: 5)
-                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
-                view.leftCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
-            }
-            return view
-        }
-        return nil
-    }
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if control == view.rightCalloutAccessoryView {
-            //guard let annotation = view.annotation as? BusanData, let maintitle = annotation.title else { return }
-            
-            guard let annotation = view.annotation as? BusanData else { return }
-            guard let maintitle = annotation.title else { return }
-            guard let detialtitle = annotation.subtitle else { return }
-            guard let type = annotation.type else { return }
-            guard let company = annotation.company else { return }
-            guard let startTime = annotation.startTime else { return }
-            guard let endTime = annotation.endTime else { return }
-            guard let holiday = annotation.holiday else { return }
-            guard let phoneNum = annotation.phoneNum else { return }
-            guard let lat = annotation.lat else { return }
-            guard let long = annotation.long else { return }
 
-            
-            let vc = storyboard?.instantiateViewController(withIdentifier: "TableViewController") as? TableViewController
-            
-            vc?.maintitleString = maintitle
-            vc?.detailtitleString = detialtitle
-            vc?.typeString = type
-            vc?.companyString = company
-            vc?.startTimeString = startTime
-            vc?.endTimeString = endTime
-            vc?.holidayString = holiday
-            vc?.phoneNumString = phoneNum
-            vc?.latString = lat
-            vc?.longString = long
-            
-            
-            self.navigationController?.pushViewController(vc!, animated: true)
-            
-            
-        } else if control == view.leftCalloutAccessoryView {
-            let location = view.annotation as! BusanData
-            let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
-            location.mapItem().openInMaps(launchOptions: launchOptions)
-        }
-}
-    
-}
