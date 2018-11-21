@@ -38,7 +38,7 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
         super.viewDidLoad()
         
         self.title = "부산 전기차 충전소"
-        self.mapView.delegate = self
+        
 //        self.searchBtn.layer.cornerRadius = 10
 //        self.searchBtn.layer.borderColor = UIColor.black.cgColor
 //        self.searchBtn.layer.borderWidth = 0.5
@@ -93,8 +93,8 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
             annotation = BusanData(title: name!, subtitle: loc!, coordinate: CLLocationCoordinate2D(latitude: dLat!, longitude: dLong!), type: type!, company: company!, startTime: startTime!, endTime: endTime!, holiday: holiday!, phoneNum: phoneNum!, lat: lat!, long: long!)
             annotations.append(annotation!)
         }
-        mapView.showAnnotations(annotations, animated: true)
-        //mapView.addAnnotations(annotations)
+        //mapView.showAnnotations(annotations, animated: true)
+        mapView.addAnnotations(annotations)
 
         
     } // viewDidLoad()
@@ -127,31 +127,33 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        
         if let annotation = annotation as? BusanData {
             let identifier = "pin"
-            var view: MKPinAnnotationView
+            let annotationview = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            annotationview.image = UIImage(named: "pin")
+            
+            let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            annotationview.image = UIImage(named: "pin")
             if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView {
                 dequeuedView.annotation = annotation
-                view = dequeuedView
+                
                 view.image = UIImage(named: "pin")
-
             } else {
-                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
                 //view.leftCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
                 view.image = UIImage(named: "pin")
-
             }
-            view.image = UIImage(named: "pin")
-            
             
             return view
         }
-        
         return nil
     }
+    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             //guard let annotation = view.annotation as? BusanData, let maintitle = annotation.title else { return }
