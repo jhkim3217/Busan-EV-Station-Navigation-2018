@@ -41,7 +41,7 @@ class BusanData: NSObject, MKAnnotation {
         let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
         let mapItem = MKMapItem(placemark: placemark)
         
-        mapItem.name = "\(title) \(subtitle)"
+        mapItem.name = "\(title!) \(subtitle!)"
         
         return mapItem
     }

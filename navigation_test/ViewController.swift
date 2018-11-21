@@ -38,9 +38,9 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
         super.viewDidLoad()
         
         self.title = "부산 전기차 충전소"
-        self.searchBtn.layer.cornerRadius = 10
-        self.searchBtn.layer.borderColor = UIColor.black.cgColor
-        self.searchBtn.layer.borderWidth = 0.5
+//        self.searchBtn.layer.cornerRadius = 10
+//        self.searchBtn.layer.borderColor = UIColor.black.cgColor
+//        self.searchBtn.layer.borderWidth = 0.5
         
         self.mapView.showsUserLocation = true
         
@@ -159,6 +159,7 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
     
     
     // XMLParser Delegete 메소드
+    //mkpinannotationview image
     
     // XML 파서가 시작 테그를 만나면 호출됨
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
@@ -219,7 +220,7 @@ extension ViewController : MKMapViewDelegate
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if control == view.leftCalloutAccessoryView {
+        if control == view.rightCalloutAccessoryView {
             //guard let annotation = view.annotation as? BusanData, let maintitle = annotation.title else { return }
             
             guard let annotation = view.annotation as? BusanData else { return }
@@ -247,11 +248,11 @@ extension ViewController : MKMapViewDelegate
             self.navigationController?.pushViewController(vc!, animated: true)
             
             
-        } else if control == view.rightCalloutAccessoryView {
+        } else if control == view.leftCalloutAccessoryView {
             let location = view.annotation as! BusanData
             let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
             location.mapItem().openInMaps(launchOptions: launchOptions)
         }
-    }
+}
     
 }

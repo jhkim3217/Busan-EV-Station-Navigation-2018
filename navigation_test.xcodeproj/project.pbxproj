@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		148BB04B21A5298700D0206E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BB04A21A5298700D0206E /* WebViewController.swift */; };
 		4EECBB42219273DA0074FD1D /* EV.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4EECBB41219273DA0074FD1D /* EV.xml */; };
 		5288852521A11F8200C41CB0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5288852421A11F8200C41CB0 /* TableViewController.swift */; };
 		52FC13A021919BFC00CF8B49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC139F21919BFC00CF8B49 /* AppDelegate.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		148BB04A21A5298700D0206E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		4EECBB41219273DA0074FD1D /* EV.xml */ = {isa = PBXFileReference; explicitFileType = text.xml; fileEncoding = 4; path = EV.xml; sourceTree = "<group>"; };
 		5288852421A11F8200C41CB0 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		52FC139C21919BFC00CF8B49 /* navigation_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = navigation_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +118,7 @@
 				52FC13AB21919C0800CF8B49 /* Info.plist */,
 				52FC13D021919FA700CF8B49 /* BusanData.swift */,
 				5288852421A11F8200C41CB0 /* TableViewController.swift */,
+				148BB04A21A5298700D0206E /* WebViewController.swift */,
 			);
 			path = navigation_test;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				52FC13A221919BFC00CF8B49 /* ViewController.swift in Sources */,
 				52FC13D121919FA700CF8B49 /* BusanData.swift in Sources */,
 				52FC13A021919BFC00CF8B49 /* AppDelegate.swift in Sources */,
+				148BB04B21A5298700D0206E /* WebViewController.swift in Sources */,
 				5288852521A11F8200C41CB0 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,7 +461,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SXHT94RY8K;
 				INFOPLIST_FILE = navigation_test/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -476,7 +480,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SXHT94RY8K;
 				INFOPLIST_FILE = navigation_test/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
