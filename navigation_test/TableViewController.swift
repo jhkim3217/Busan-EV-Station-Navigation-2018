@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MapKit
+import AddressBook
 
 class TableViewController: UITableViewController {
     @IBOutlet weak var detaillbl: UILabel!
@@ -25,6 +27,10 @@ class TableViewController: UITableViewController {
     var endTimeString = ""
     var holidayString = ""
     var phoneNumString = ""
+    var latString = ""
+    var longString = ""
+    var dLat: Double?
+    var dLong: Double?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +44,38 @@ class TableViewController: UITableViewController {
         holiday.text = holidayString
         phone.text = phoneNumString
         //detaillbl.text = detailtitleString
+        dLat = Double(latString)
+        dLong = Double(longString)
+        print(dLat)
+        print(dLong)
         
     }
 
-
-
+    @IBAction func navi(_ sender: Any) {
+        let latitude:CLLocationDegrees = dLat!
+        let longitude:CLLocationDegrees = dLong!
+        
+        let addressDictionary = [String(kABPersonAddressStreetKey) : detailtitleString]
+        
+        let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: addressDictionary)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "\(maintitleString) \(detailtitleString)"
+        mapItem.openInMaps(launchOptions: launchOptions)
+        
+    }
+    
+//    let addressDictionary = [String(kABPersonAddressStreetKey) : subtitle]
+//    let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
+//    let mapItem = MKMapItem(placemark: placemark)
+//
+//    mapItem.name = "\(title!) \(subtitle!)"
+//
+//    let location = view.annotation as! BusanData
+//    let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+//    location.mapItem().openInMaps(launchOptions: launchOptions)
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

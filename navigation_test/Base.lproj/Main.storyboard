@@ -379,7 +379,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="상세 정보" id="7vH-BB-eFM">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="azO-Eh-aXo"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="azO-Eh-aXo">
+                            <connections>
+                                <action selector="navi:" destination="ICh-Tt-fzp" id="RLm-pf-A0e"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="company" destination="iPA-PV-cob" id="VTu-xv-gjs"/>

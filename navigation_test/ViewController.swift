@@ -76,7 +76,7 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
         
         for item in items {
             name = item["충전소명"]
-            loc = item["소재지지번주소"]
+            loc = item["소재지도로명주소"]
             lat = item["위도"]
             long = item["경도"]
             type = item["급속충전타입구분"]
@@ -89,7 +89,7 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
             
             dLat = Double(lat!)
             dLong = Double(long!)
-            annotation = BusanData(title: name!, subtitle: loc!, coordinate: CLLocationCoordinate2D(latitude: dLat!, longitude: dLong!), type: type!, company: company!, startTime: startTime!, endTime: endTime!, holiday: holiday!, phoneNum: phoneNum!)
+            annotation = BusanData(title: name!, subtitle: loc!, coordinate: CLLocationCoordinate2D(latitude: dLat!, longitude: dLong!), type: type!, company: company!, startTime: startTime!, endTime: endTime!, holiday: holiday!, phoneNum: phoneNum!, lat: lat!, long: long!)
             annotations.append(annotation!)
         }
         //mapView.showAnnotations(annotations, animated: true)
@@ -218,7 +218,6 @@ extension ViewController : MKMapViewDelegate
         }
         return nil
     }
-    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             //guard let annotation = view.annotation as? BusanData, let maintitle = annotation.title else { return }
@@ -232,6 +231,8 @@ extension ViewController : MKMapViewDelegate
             guard let endTime = annotation.endTime else { return }
             guard let holiday = annotation.holiday else { return }
             guard let phoneNum = annotation.phoneNum else { return }
+            guard let lat = annotation.lat else { return }
+            guard let long = annotation.long else { return }
 
             
             let vc = storyboard?.instantiateViewController(withIdentifier: "TableViewController") as? TableViewController
@@ -244,6 +245,9 @@ extension ViewController : MKMapViewDelegate
             vc?.endTimeString = endTime
             vc?.holidayString = holiday
             vc?.phoneNumString = phoneNum
+            vc?.latString = lat
+            vc?.longString = long
+            
             
             self.navigationController?.pushViewController(vc!, animated: true)
             

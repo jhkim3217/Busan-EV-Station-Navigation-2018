@@ -20,8 +20,10 @@ class BusanData: NSObject, MKAnnotation {
     let endTime: String?
     let holiday: String?
     let phoneNum: String?
+    let lat: String?
+    let long: String?
     
-    init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D, type: String, company: String, startTime: String, endTime:String, holiday: String, phoneNum: String) {
+    init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D, type: String, company: String, startTime: String, endTime:String, holiday: String, phoneNum: String, lat: String, long: String) {
         self.title = title
         self.subtitle = subtitle
         self.coordinate = coordinate
@@ -31,6 +33,8 @@ class BusanData: NSObject, MKAnnotation {
         self.endTime = endTime
         self.holiday = holiday
         self.phoneNum = phoneNum
+        self.lat = lat
+        self.long = long
         
         super.init()
     }
