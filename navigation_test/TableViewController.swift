@@ -87,6 +87,18 @@ class TableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let indexPath = tableView.indexPathForSelectedRow
+        //print(indexPath!)
+        if(indexPath! == [7, 0]){
+            let url: NSURL = URL(string: "TEL://\(phoneNumString))")! as NSURL
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        }
+        
+        
+        
+    }
 
     
 //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
