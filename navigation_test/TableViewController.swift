@@ -8,8 +8,10 @@
 
 import UIKit
 import MapKit
-import AddressBook
+import Contacts
 
+@available(iOS 10.0, *)
+@available(iOS 10.0, *)
 class TableViewController: UITableViewController {
     @IBOutlet weak var detaillbl: UILabel!
     @IBOutlet weak var maintitle: UILabel!
@@ -46,8 +48,8 @@ class TableViewController: UITableViewController {
         //detaillbl.text = detailtitleString
         dLat = Double(latString)
         dLong = Double(longString)
-        print(dLat)
-        print(dLong)
+        print(dLat!)
+        print(dLong!)
         
     }
 
@@ -55,7 +57,7 @@ class TableViewController: UITableViewController {
         let latitude:CLLocationDegrees = dLat!
         let longitude:CLLocationDegrees = dLong!
         
-        let addressDictionary = [String(kABPersonAddressStreetKey) : detailtitleString]
+        let addressDictionary = [String(CNPostalAddressStreetKey) : detailtitleString]
         
         let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]

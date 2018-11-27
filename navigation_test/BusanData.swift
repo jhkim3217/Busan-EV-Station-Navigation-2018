@@ -8,7 +8,7 @@
 
 import Foundation
 import MapKit
-import AddressBook
+import Contacts
 
 class BusanData: NSObject, MKAnnotation {
     let title: String?
@@ -41,8 +41,8 @@ class BusanData: NSObject, MKAnnotation {
     
     func mapItem() -> MKMapItem
     {
-        let addressDictionary = [String(kABPersonAddressStreetKey) : subtitle]
-        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
+        let addressDictionary = [String(CNPostalAddressStreetKey) : subtitle]
+        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary as Any as? [String : Any])
         let mapItem = MKMapItem(placemark: placemark)
         
         mapItem.name = "\(title!) \(subtitle!)"

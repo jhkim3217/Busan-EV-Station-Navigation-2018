@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05AD10A821ABCE1000342D11 /* MyWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD10A721ABCE1000342D11 /* MyWebViewViewController.swift */; };
+		05AD10AA21ABCEA800342D11 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AD10A921ABCEA800342D11 /* WebKit.framework */; };
 		148BB04B21A5298700D0206E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BB04A21A5298700D0206E /* WebViewController.swift */; };
 		4EECBB42219273DA0074FD1D /* EV.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4EECBB41219273DA0074FD1D /* EV.xml */; };
 		5288852521A11F8200C41CB0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5288852421A11F8200C41CB0 /* TableViewController.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05AD10A721ABCE1000342D11 /* MyWebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWebViewViewController.swift; sourceTree = "<group>"; };
+		05AD10A921ABCEA800342D11 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		148BB04A21A5298700D0206E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		4EECBB41219273DA0074FD1D /* EV.xml */ = {isa = PBXFileReference; explicitFileType = text.xml; fileEncoding = 4; path = EV.xml; sourceTree = "<group>"; };
 		5288852421A11F8200C41CB0 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05AD10AA21ABCEA800342D11 /* WebKit.framework in Frameworks */,
 				52FC13CF21919C9200CF8B49 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				4EECBB41219273DA0074FD1D /* EV.xml */,
+				05AD10A721ABCE1000342D11 /* MyWebViewViewController.swift */,
 				52FC139F21919BFC00CF8B49 /* AppDelegate.swift */,
 				52FC13A121919BFC00CF8B49 /* ViewController.swift */,
 				52FC13A321919BFC00CF8B49 /* Main.storyboard */,
@@ -144,6 +150,7 @@
 		52FC13CD21919C9200CF8B49 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05AD10A921ABCEA800342D11 /* WebKit.framework */,
 				52FC13CE21919C9200CF8B49 /* MapKit.framework */,
 			);
 			name = Frameworks;
@@ -217,13 +224,16 @@
 				TargetAttributes = {
 					52FC139B21919BFC00CF8B49 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 					};
 					52FC13AF21919C0800CF8B49 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 52FC139B21919BFC00CF8B49;
 					};
 					52FC13BA21919C0800CF8B49 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 52FC139B21919BFC00CF8B49;
 					};
 				};
@@ -285,6 +295,7 @@
 				52FC13D121919FA700CF8B49 /* BusanData.swift in Sources */,
 				52FC13A021919BFC00CF8B49 /* AppDelegate.swift in Sources */,
 				148BB04B21A5298700D0206E /* WebViewController.swift in Sources */,
+				05AD10A821ABCE1000342D11 /* MyWebViewViewController.swift in Sources */,
 				5288852521A11F8200C41CB0 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,17 +469,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 29US4V7YU5;
+				DEVELOPMENT_TEAM = UQ37D35Z4Z;
 				INFOPLIST_FILE = navigation_test/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.dit.navi;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.ditapps.BusanEV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -477,17 +490,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 29US4V7YU5;
+				DEVELOPMENT_TEAM = UQ37D35Z4Z;
 				INFOPLIST_FILE = navigation_test/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.dit.navi;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.ditapps.BusanEV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -506,7 +521,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "kr.ac.dit.navigation-testTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/navigation_test.app/navigation_test";
 			};
@@ -526,7 +541,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "kr.ac.dit.navigation-testTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/navigation_test.app/navigation_test";
 			};
@@ -545,7 +560,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "kr.ac.dit.navigation-testUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = navigation_test;
 			};
@@ -564,7 +579,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "kr.ac.dit.navigation-testUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = navigation_test;
 			};

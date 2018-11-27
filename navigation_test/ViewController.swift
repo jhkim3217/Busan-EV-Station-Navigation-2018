@@ -8,6 +8,9 @@
 
 import UIKit
 import MapKit
+@available(iOS 10.0, *)
+@available(iOS 10.0, *)
+@available(iOS 10.0, *)
 class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet var searchBtn: UIButton!
@@ -52,7 +55,7 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
                 if myParser.parse() {
                     print("파싱 성공")
                     for item in items {
-                        //print("item \(item["소재지지번주소"]!)")
+                        print("item \(item["소재지지번주소"]!)")
                     }
                 } else {
                     print("파싱 실패")
@@ -102,7 +105,7 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
     
     @IBAction func current(_ sender: Any) {
         let userLocation = mapView.userLocation
-        let region = MKCoordinateRegionMakeWithDistance((userLocation.location?.coordinate)!, 3000, 3000)
+        let region = MKCoordinateRegion(center: (userLocation.location?.coordinate)!, latitudinalMeters: 3000, longitudinalMeters: 3000)
         mapView.setRegion(region, animated: true)
     }
     @IBAction func zoomIn(_ sender: Any) {
@@ -207,7 +210,7 @@ class ViewController: UIViewController, XMLParserDelegate, CLLocationManagerDele
     private let regionRadius: CLLocationDistance = 1000 // 1km ~ 1.6km(1mile)
     
     func zoomMapOn(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
+        let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius * 2.0, longitudinalMeters: regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
